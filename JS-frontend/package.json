@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@splidejs/splide": "^4.0.1",
+    "@splidejs/splide-extension-auto-scroll": "^0.4.2",
     "interactjs": "^1.10.11"
   }
 }

@@ -10,8 +10,18 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80vh;
-
+    height: 70vh;
+}
+.carousel_container{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.carousel{
+    display: flex;
+    justify-content: space-around;
+}
+.carousel img{
+    max-width: 30%;
 }
 .draggable{
     position: absolute;
@@ -19,8 +29,6 @@ body{
     margin: 1rem 0 0 1rem;
     background-color: White;
     color: Black;
-    padding: 0.5rem;
-    border: 1px solid black;
     touch-action: none;
     user-select: none;
     transform: translate(0px, 0px);
@@ -52,9 +60,10 @@ body{
     margin-left: 2rem;
 }
 .sendbtn button{
-    width: 4rem;
     border: none;
     text-decoration: none;
     cursor: pointer;
-    background: url("CardPage/Img/iconmonstr-arrow-27-240.png");
+}
+.sendbtn img{
+    width: 4rem;
 }
