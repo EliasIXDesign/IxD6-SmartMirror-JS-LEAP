@@ -1,3 +1,4 @@
+
 const container1 = document.querySelector('.container');
 
 interact('.draggable').draggable({
@@ -35,13 +36,13 @@ function dragMoveListener (event) {
 
 
 container1.addEventListener('click', function (){
-
-  /* const newDiv = document.createElement('div');
-   newDiv.classList.add('draggable');
-   newDiv.style.marginTop = '50px';
-   const container2 = document.querySelector('.container');
-   container2.appendChild(newDiv);
+    /*
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('draggable');
+    newDiv.style.marginTop = '50px';
+    container1.appendChild(newDiv);
+    */
 
     console.log('Its working!');
-*/
+
 })
