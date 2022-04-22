@@ -1,9 +1,13 @@
+//variables
 let imageID = 1;
 let images = [];
 
+//variables for html elements
 const container = document.querySelector('.container');
 const carousel = document.querySelector('.carousel');
+const send_btn = document.querySelector('.sendbtn')
 
+//creates array of first 3 pictures
 createArray();
 
 function createArray (){
@@ -11,15 +15,23 @@ function createArray (){
         insertArray(i);
     }
     for (let i = 0; i < images.length ; i++) {
+        //places the html files in the html document
         carousel.appendChild(images[i].element);
     }
 }
+
+//insert the pictures source in array
 function insertArray(i){
+    //creates html element
     let img = document.createElement("img");
+    //assign source
     img.src = `Img/${i+1}.jpg`;
-    img.id = "imageID";
+    //assign an id
+    img.id = `${imageID}`;
+    console.log(`ImageId on image: ${img.id} is now ${imageID} on place ${i}`);
+    //push to array
     images.push({id:img.id, element: img});
-    imageID++;
+    updateImageId();
 }
 
 // PRINTER BILLEDE TIL SKÆRM
@@ -29,12 +41,39 @@ window.addEventListener('keydown', function (e){
     }
 })
 
+//when clicking on send button
+send_btn.addEventListener('click', function (){
+    if (!(imageID === images.length+1)){
+        insertNewImage();
+    }
+})
+
+// Inserts newest taken picture and place it on screen
+function insertNewImage(){
+    let img = document.getElementById(`${imageID-1}`);
+    let length = images.length-1;
+    if (length < img.id){
+        images.push({id:img.id, element: img})
+        container.removeChild(img);
+        length = images.length-1;
+        console.log(`Id of last entry of Array after insert ${images.length} at place ${length}`);
+
+    }
+}
+
 async function printFunc(){
     let newImg = document.createElement('img');
-    newImg.src = "Img/6.jpg";
+    newImg.src = `Img/${imageID}.jpg`;
     newImg.classList.add('draggable-container')
-    newImg.id = "imageID";
+    newImg.id = `${imageID}`;
+    console.log(`ImageId on image posted: ${newImg.id} is now ${imageID}`);
     document.querySelector('.container').appendChild(newImg);
+    updateImageId();
+}
+
+function updateImageId(){
+    imageID++;
+    console.log("imageId is updated to: " + imageID);
 }
 
 
