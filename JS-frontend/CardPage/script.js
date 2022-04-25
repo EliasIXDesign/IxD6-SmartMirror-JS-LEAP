@@ -28,7 +28,7 @@ function insertArray(i){
     img.src = `Img/${i+1}.jpg`;
     //assign an id
     img.id = `${imageID}`;
-    console.log(`ImageId on image: ${img.id} is now ${imageID} on place ${i}`);
+    console.log(`ImageId on image: ${img.id} has place: ${i}`);
     //push to array
     images.push({id:img.id, element: img});
     updateImageId();
@@ -43,42 +43,50 @@ window.addEventListener('keydown', function (e){
 
 //when clicking on send button
 send_btn.addEventListener('click', function (){
-    if (imageID > images.length+1){
-        insertNewImage();
+    //if ID is the same as the length of array +1, no pictures are posted
+    if (!(imageID === (images.length+1))){
+        //insert every posted picture in array above
+        for (let i = images.length+1; i < imageID ; i++) {
+            insertNewImage(i);
+        }
     }
 })
 
 // Inserts newest taken picture and place it on screen
-function insertNewImage(){
-    let img = document.getElementById(`${imageID-1}`);
-    let length = images.length-1;
+function insertNewImage(number){
+    let img = document.getElementById(`${number}`);
+    const length = images.length;
 
     //if picture is not in array
     if (length < img.id){
         images.push({id:img.id, element: img})
         container.removeChild(img);
-        length = images.length-1;
-        console.log(`Id of last entry of Array after insert ${images.length} at place ${length}`);
+        console.log(`Entry of Array after insert has ID ${img.id} at place ${length}`);
         updateCarousel(carousel);
     }
 }
 
 async function printFunc(){
+
     let newImg = document.createElement('img');
     newImg.src = `Img/${imageID}.jpg`;
-    newImg.classList.add('draggable-container')
-    newImg.id = `${imageID}`;
-    console.log(`ImageId on image posted: ${newImg.id} is now ${imageID}`);
-    document.querySelector('.container').appendChild(newImg);
-    updateImageId();
+
+    if(doesFileExist(newImg.src)){
+        newImg.classList.add('draggable-container')
+        newImg.id = `${imageID}`;
+        console.log(`image posted has ID : ${imageID}`);
+        document.querySelector('.container').appendChild(newImg);
+
+        updateImageId();
+    }
 }
 
 function updateImageId(){
     imageID++;
-    console.log("imageId is updated to: " + imageID);
 }
 
 function updateCarousel(parent){
+
     let length = images.length-1;
 
     //removes pictures from container
@@ -97,5 +105,17 @@ function updateCarousel(parent){
     }
 }
 
+function doesFileExist(urlToFile) {
+    var xhr = new XMLHttpRequest();
 
+    //open request
+    xhr.open('GET', urlToFile, false);
+    //send request
+    xhr.send();
 
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
+}
