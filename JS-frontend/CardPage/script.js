@@ -8,7 +8,7 @@ const carousel = document.querySelector('.carousel');
 const send_btn = document.querySelector('.sendbtn')
 
 //creates array of first 3 pictures
-createArray();
+//createArray();
 
 function createArray (){
     for (let i = 0; i < 3; i++) {
@@ -86,22 +86,26 @@ function updateImageId(){
 }
 
 function updateCarousel(parent){
+    console.log("pictures in array: " + images.length);
+    let place = images.length-1;
+    let i;
 
-    let length = images.length-1;
+    //if there's less than 3 pictures in array
+    //otherwise for loop will try to iterate 3 times even there is not 3 pictures
+    images.length < 3 ? i = images.length : i = 3;
 
     //removes pictures from container
     while (parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
     //insert picture in the list above
-    for (let i = 3; i > 0 ; i--) {
+    for (i; i > 0 ; i--) {
         //use or otherwise pictures placement is fucked
-        images[length].element.style.transform = "translate(0,0)";
-
-        images[length].element.classList.remove("draggable-container");
-        images[length].element.classList.add("carousel");
-        parent.appendChild(images[length].element);
-        length--;
+        images[place].element.style.transform = "translate(0,0)";
+        images[place].element.classList.remove("draggable-container");
+        images[place].element.classList.add("carousel");
+        parent.appendChild(images[place].element);
+        place--;
     }
 }
 
