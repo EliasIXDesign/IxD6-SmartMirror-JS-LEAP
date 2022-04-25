@@ -106,6 +106,7 @@ function updateCarousel(parent){
         images[place].element.classList.add("carousel");
         parent.appendChild(images[place].element);
         place--;
+        console.log(place);
     }
 }
 
@@ -113,7 +114,7 @@ function doesFileExist(urlToFile) {
     var xhr = new XMLHttpRequest();
 
     //open request
-    xhr.open('GET', urlToFile, false);
+    xhr.open('HEAD', urlToFile, false);
     //send request
     xhr.send();
 
