@@ -44,13 +44,16 @@ window.addEventListener('keydown', function (e){
 //when clicking on send button
 send_btn.addEventListener('click', function (){
     //if ID is the same as the length of array +1, no pictures are posted
-    if (!(imageID === (images.length+1))){
+    if (!container.childNodes,length == 0){
+        //FIXME
         //insert every posted picture in array above
         for (let i = images.length+1; i < imageID ; i++) {
             insertNewImage(i);
         }
     }
 })
+
+
 
 // Inserts newest taken picture and place it on screen
 function insertNewImage(number){
@@ -60,7 +63,6 @@ function insertNewImage(number){
     //if picture is not in array
     if (length < img.id){
         images.push({id:img.id, element: img})
-        container.removeChild(img);
         console.log(`Entry of Array after insert has ID ${img.id} at place ${length}`);
         updateCarousel(carousel);
     }
@@ -86,7 +88,6 @@ function updateImageId(){
 }
 
 function updateCarousel(parent){
-    console.log("pictures in array: " + images.length);
     let place = images.length-1;
     let i;
 
@@ -103,10 +104,13 @@ function updateCarousel(parent){
         //use or otherwise pictures placement is fucked
         images[place].element.style.transform = "translate(0,0)";
         images[place].element.classList.remove("draggable-container");
-        images[place].element.classList.add("carousel");
+        images[place].element.classList.add("draggable-carousel");
+        //otherwise image when dragged back will have wanky position
+        images[place].element.setAttribute('data-x',0);
+        images[place].element.setAttribute('data-y',0);
+
         parent.appendChild(images[place].element);
         place--;
-        console.log(place);
     }
 }
 

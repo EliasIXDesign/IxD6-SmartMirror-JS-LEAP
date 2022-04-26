@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
-
+*{
+   margin: 1rem 2rem 0 1rem;
+}
 body{
     font-family: 'Open Sans', sans-serif;
     background: black;
@@ -10,7 +12,7 @@ body{
     color: white;
 }
 
-.carousel-container{
+.carousel-header{
     color: white;
     text-align: center;
     padding-top:1rem;
@@ -18,15 +20,18 @@ body{
 .carousel{
     display: flex;
     justify-content: space-around;
-
-    padding: 0.2rem;
-}
-
-.carousel img{
     height: 14rem;
     padding:  0rem 0.5rem 0.5rem 0.5rem;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
 }
 
+
+.draggable-carousel{
+    user-select: none;
+    touch-action: none;
+    transform: translate(0px, 0px);
+}
 .container{
     position: relative;
     display: flex;
@@ -34,6 +39,7 @@ body{
     align-items: center;
     width: 100%;
     height: 60vh;
+    border: solid white 2px;
 }
 .draggable-container{
     position: absolute;
@@ -56,7 +62,7 @@ body{
 
 .sendbtn{
     display: flex;
-    align-items: center;
+   justify-content: center;
     margin-top: 2rem;
     padding: 1rem;
     background-color: White;
@@ -65,17 +71,6 @@ body{
     border: 1px solid black;
 }
 
-
 .sendbtn h1{
     font-weight: 700;
-    margin-right: 5rem;
-    margin-left: 2rem;
-}
-.sendbtn button{
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-}
-.sendbtn img{
-    width: 4rem;
 }
