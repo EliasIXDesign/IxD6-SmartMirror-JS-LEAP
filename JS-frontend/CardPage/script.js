@@ -8,7 +8,7 @@ const carousel = document.querySelector('.carousel');
 const send_btn = document.querySelector('.sendbtn')
 
 //creates array of first 3 pictures
-//createArray();
+createArray();
 
 function createArray (){
     for (let i = 0; i < 3; i++) {
@@ -28,6 +28,7 @@ function insertArray(i){
     img.src = `Img/${i+1}.jpg`;
     //assign an id
     img.id = `${imageID}`;
+    img.classList.add("draggable-carousel");
     console.log(`ImageId on image: ${img.id} has place: ${i}`);
     //push to array
     images.push({id:img.id, element: img});
@@ -43,9 +44,12 @@ window.addEventListener('keydown', function (e){
 
 //when clicking on send button
 send_btn.addEventListener('click', function (){
+    let arrayText = document.getElementById('arrayText');
+    let imagesContainer = container.getElementsByTagName('*').length;
     //if ID is the same as the length of array +1, no pictures are posted
-    if (!container.childNodes,length == 0){
-        //FIXME
+    if (imagesContainer !== 0){
+        arrayText.style.visibility = "visible";
+
         //insert every posted picture in array above
         for (let i = images.length+1; i < imageID ; i++) {
             insertNewImage(i);
@@ -127,4 +131,15 @@ function doesFileExist(urlToFile) {
     } else {
         return true;
     }
+}
+
+function tempAlert(msg,duration)
+{
+    let el = document.createElement("div");
+    el.setAttribute("style","position:absolute;top:40%;left:20%;background-color:white;");
+    el.innerHTML = msg;
+    setTimeout(function(){
+        el.parentNode.removeChild(el);
+    },duration);
+    document.body.appendChild(el);
 }
