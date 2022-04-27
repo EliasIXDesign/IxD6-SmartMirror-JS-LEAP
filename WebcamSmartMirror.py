@@ -12,7 +12,7 @@ img_counter = 0
 
 global dataArduino
 
-
+#https://thecleverprogrammer.com/2021/01/05/use-phone-camera-with-python/
 def readA():
     dataArduino = arduino.readline()
     if dataArduino:
