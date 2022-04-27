@@ -2,12 +2,12 @@
 
 #define LED_PIN 6
 
-#define NUM_LEDS    14
+#define NUM_LEDS    6
 #define CHIPSET     WS2812B
 #define COLOR_ORDER GRB
 CRGB leds[NUM_LEDS];
 
-#define BRIGHTNESS  255
+#define BRIGHTNESS  150
 
 const int buttonPin = 2;
 
@@ -34,6 +34,7 @@ void loop() {
   //while (!Serial.available());
   delay ( 1000 );
   Serial.print("1");
+  delay (100);
    
   
 
