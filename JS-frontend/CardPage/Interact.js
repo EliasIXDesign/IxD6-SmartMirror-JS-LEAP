@@ -17,7 +17,6 @@ interact('.draggable-container').draggable({
         move: dragMoveListener,
     }
 })
-
 interact('.draggable-carousel').draggable({
     // enable inertial throwing
     inertia: true,
@@ -31,7 +30,6 @@ interact('.draggable-carousel').draggable({
     ],
     // enable autoScroll
     autoScroll: false,
-
     listeners: {
         // call this function on every dragmove event
         move: dragMoveListener,
