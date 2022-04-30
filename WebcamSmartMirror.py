@@ -8,11 +8,11 @@ cam = cv2.VideoCapture(0)
 
 cv2.namedWindow("test")
 
-img_counter = 0
+img_counter = 1
 
 global dataArduino
 
-
+#https://thecleverprogrammer.com/2021/01/05/use-phone-camera-with-python/
 def readA():
     dataArduino = arduino.readline()
     if dataArduino:
@@ -36,8 +36,14 @@ while True:
         break
     elif dataArduino == 1:
         # SPACE pressed
-        img_name = "opencv_frame_{}.png".format(img_counter)
+        img_name = "img{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
+        image = cv2.imread(img_name)
+        rotated = cv2.rotate(image, cv2.ROTATE_180)
+
+        cv2.imwrite(img_name, rotated)
+        
+        
         print("{} written!".format(img_name))
         img_counter += 1
 
