@@ -1,14 +1,20 @@
 import cv2
 import serial
 import time
+import os
 
-arduino = serial.Serial(port='COM8', baudrate=115200, timeout=.1)
+arduino = serial.Serial(port='COM7', baudrate=115200, timeout=.1)
 
 cam = cv2.VideoCapture(0)
 
 cv2.namedWindow("test")
 
 img_counter = 1
+
+directory = r'C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img'
+
+os.chdir(directory)
+print(os.listdir(directory))
 
 global dataArduino
 
@@ -36,7 +42,7 @@ while True:
         break
     elif dataArduino == 1:
         # SPACE pressed
-        img_name = "img{}.png".format(img_counter)
+        img_name = "{}.jpg".format(img_counter)
         cv2.imwrite(img_name, frame)
         image = cv2.imread(img_name)
         rotated = cv2.rotate(image, cv2.ROTATE_180)
@@ -47,7 +53,7 @@ while True:
         print("{} written!".format(img_name))
         img_counter += 1
 
-    
+        #C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img
     
 
 cam.release()
