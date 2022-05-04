@@ -2,6 +2,7 @@ import cv2
 import serial
 import time
 import os
+import pyautogui
 
 arduino = serial.Serial(port='COM7', baudrate=115200, timeout=.1)
 
@@ -52,6 +53,7 @@ while True:
         
         print("{} written!".format(img_name))
         img_counter += 1
+        pyautogui.press('enter')
 
         #C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img
     
