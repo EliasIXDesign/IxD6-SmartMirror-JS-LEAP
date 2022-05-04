@@ -28,6 +28,7 @@ void setup() {
 void loop() {
   
  buttonStateCamera = digitalRead(buttonPinCamera);
+ buttonStateSend = digitalRead(buttonPinSend);
 
  if (buttonStateCamera == LOW) {
   for(int n = 0; n < NUM_LEDS; n++) {
