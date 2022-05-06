@@ -61,6 +61,8 @@ function sendInput(){
     for (let j = 1; j <imagesOnScreen ; j++) {
         clearPage(j);
     }
+    setTimeout(printPopup,10);
+    setTimeout(deletePopup,3000);
     imagesOnScreen = 1;
 }
 
@@ -82,7 +84,6 @@ function clearPage(j){
         let child = imageDiv.lastChild;
         imageDiv.removeChild(child);
     }
-
 }
 
 
@@ -112,18 +113,21 @@ function inactivityTime() {
 }
 
 function createIdleArray(){
-    let  container = document.querySelector(".modal-content");
+    let  container = document.getElementById("modal-idle");
+    //copies array and then shuffles it
     let randomArray = images.slice();
     shuffle(randomArray);
 
     if(document.querySelector(".modal-image-1").childElementCount > 0){
+        //gets every img element in DOM
         let images = document.getElementsByTagName('img');
+
+        //remove images if there is any on modal screen
         let l = images.length;
         for (let i = 0; i < l; i++) {
             images[0].parentNode.removeChild(images[0]);
         }
     }
-
 
     for (let i = 0; i < images.length; i++) {
         if(i <6){
@@ -133,7 +137,6 @@ function createIdleArray(){
 }
 
 function insertArray(i, array){
-
     let imageDiv = document.querySelector(`.modal-image-${i+1}`);
     images[i].element.classList.remove("input-img");
     imageDiv.appendChild(array[i].element);
@@ -155,4 +158,15 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+
+function printPopup(){
+    const popUp = document.getElementById("modal-thank-page");
+    popUp.style.display = "block";
+}
+
+function deletePopup(){
+    const popUp = document.getElementById("modal-thank-page");
+    popUp.style.display = "none";
 }

@@ -2,6 +2,7 @@
 *{
     margin: 1.5rem 1.5rem 0 1rem;
     padding: 0;
+    cursor: none;
 }
 body{
     font-family: 'Open Sans', sans-serif;
@@ -38,7 +39,7 @@ body{
 
 .modal-container{
     margin: 0;
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -91,4 +92,22 @@ body{
     display: block;
     width: 450px;
 
+}
+
+.modal-thank{
+    margin-top: 60%;
+    margin-left: 15%;
+    height: 15%;
+    width: 70%;
+    background-color: white;
+}
+
+.modal-thank{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
+.modal-thank h1{
+    padding-top: 3.5rem;
 }
