@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+*{
+    margin: 1.5rem 1.5rem 0 1rem;
+    padding: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background: black;
+}
+
+.header{
+    text-align: center;
+    color: white;
+    margin-left: 5rem;
+    font-size:35px;
+}
+
+.input-container{
+    margin-top: 2rem;
+}
+.input{
+   display: inline;
+}
+
+.left img{
+    margin-right:14rem;
+}
+.input-img{
+    object-fit:cover;
+    width: 32%;
+    padding-top: 15rem;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.modal-container{
+    margin: 0;
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin-top: 10rem;
+    height: 80%;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1.1fr;
+    grid-template-rows: 0.13fr 0.3fr 0.3fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "modal-header modal-header"
+    "modal-image-1 modal-image-2"
+    "modal-image-3 modal-image-4"
+    "modal-image-5 modal-image-6";
+}
+.modal-header {
+    margin-top: 2.5rem;
+    grid-area: modal-header;
+    text-align: center;
+    font-size: 25px;
+}
+
+.modal-image-1 { grid-area: modal-image-1; }
+
+.modal-image-2 { grid-area: modal-image-2; }
+
+.modal-image-3 { grid-area: modal-image-3; }
+
+.modal-image-4 { grid-area: modal-image-4; }
+
+.modal-image-5 { grid-area: modal-image-5; }
+
+.modal-image-6 { grid-area: modal-image-6; }
+
+.modal-content img{
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 450px;
+
+}

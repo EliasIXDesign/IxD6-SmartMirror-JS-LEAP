@@ -6,7 +6,7 @@ let images = [];
 const container = document.querySelector('.container');
 const carousel = document.querySelector('.carousel');
 const send_btn = document.querySelector('.sendbtn')
-const shufflebtn = document.querySelector('.shuffleBtn');
+const shuffle_btn = document.querySelector('.shuffleBtn');
 
 window.onload = function() {
     inactivityTime();
@@ -69,7 +69,7 @@ function updateImageId(){
 }
 
 function doesFileExist(urlToFile) {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
     //open request
     xhr.open('HEAD', urlToFile, false);
@@ -135,9 +135,27 @@ function updateCarousel(parent){
     }
 }
 
-shufflebtn.addEventListener('click', function (){
+shuffle_btn.addEventListener('click', function (){
     insertRandomImage();
 })
+
+function insertRandomImage(){
+    while(carousel.firstChild){
+        carousel.removeChild(carousel.firstChild);
+    }
+    for (let i = 0; i < 3; i++) {
+        let randNum = getRandomInt(0,imageID-2);
+        console.log(randNum);
+        if(!container.contains(images[randNum].element)){
+            resetImage(randNum)
+            carousel.appendChild(images[randNum].element)
+        }
+    }
+}
+
+function getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 let inactivityTime = function () {
     const modal = document.getElementById("modal");
@@ -173,23 +191,6 @@ function deletePopup(){
     popUp.style.display = "none";
 }
 
-function getRandomInt (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function insertRandomImage(){
-    while(carousel.firstChild){
-        carousel.removeChild(carousel.firstChild);
-    }
-    for (let i = 0; i < 3; i++) {
-        let randNum = getRandomInt(0,imageID-2);
-        console.log(randNum);
-        if(!container.contains(images[randNum].element)){
-            resetImage(randNum)
-            carousel.appendChild(images[randNum].element)
-        }
-    }
-}
 
 function resetImage(place){
     //use or otherwise pictures placement is fucked
