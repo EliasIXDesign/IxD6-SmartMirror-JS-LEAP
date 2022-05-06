@@ -15,6 +15,9 @@ const int buttonPinSend = 9;
 int buttonStateCamera = 0;
 int buttonStateSend = 0;  
 
+bool current_state = false;
+bool old_state = current_state; 
+
 void setup() {
  Serial.begin(115200);
  //Serial.setTimeout(1);
@@ -28,7 +31,7 @@ void setup() {
 void loop() {
   
  buttonStateCamera = digitalRead(buttonPinCamera);
- buttonStateSend = digitalRead(buttonPinSend);
+ current_state = digitalRead(buttonPinSend);
 
  if (buttonStateCamera == LOW) {
   for(int n = 0; n < NUM_LEDS; n++) {
@@ -55,8 +58,10 @@ void loop() {
   delay( 100 );
    }
 
-  else if (buttonStateSend == HIGH) {
+  else if (current_state != old_state) {
+    old_state = current_state;
     Serial.print("2"); 
+    
   }
   
   else {
