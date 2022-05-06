@@ -3,15 +3,18 @@ let images = [];
 let imageID = 1;
 let imagesOnScreen = 1;
 
+// initialize inactivity function
 window.onload = function() {
     inactivityTime();
 }
 
+// when taking a photo of card
 window.addEventListener('keydown', function (e){
     if(e.key === 'Enter' && imagesOnScreen<=6){
         setTimeout(insertImage, 500);
     }
 })
+
 async function insertImage(){
     let newImg = document.createElement('img');
     let imageDiv = document.querySelector(`.input-${imagesOnScreen}`);
@@ -77,9 +80,9 @@ function insertImageInArray(i){
 }
 
 function clearPage(j){
-    console.log(j);
     let imageDiv = document.querySelector(`.input-${j}`);
 
+    //clear page if the div element has a child (img element)
     if (imageDiv.childElementCount !== 0){
         let child = imageDiv.lastChild;
         imageDiv.removeChild(child);
@@ -88,7 +91,7 @@ function clearPage(j){
 
 
 function inactivityTime() {
-    const modal = document.querySelector(".modal-container");
+    const modal = document.getElementById("modal-idle");
     modal.style.display="none";
     let time;
     window.onload = resetTimer;
@@ -106,6 +109,7 @@ function inactivityTime() {
     }
     function resetTimer() {
         clearTimeout(time);
+        //change the duration before idle screen HERE
         time = setTimeout(inactive, 10000)
         // 1000 milliseconds = 1 second
         setTimeout(active, 100);
@@ -137,6 +141,7 @@ function createIdleArray(){
 
 function insertArray(i, array){
     let imageDiv = document.querySelector(`.modal-image-${i+1}`);
+    //removing class and CSS attributes before inserted on modal page
     images[i].element.classList.remove("input-img");
     imageDiv.appendChild(array[i].element);
 }
@@ -158,7 +163,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 function printPopup(){
     const popUp = document.getElementById("modal-thank-page");
