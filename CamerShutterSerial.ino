@@ -9,24 +9,28 @@ CRGB leds[NUM_LEDS];
 
 #define BRIGHTNESS  150
 
-const int buttonPin = 2;
+const int buttonPinCamera = 2;
+const int buttonPinSend = 9;
 
-int buttonState = 0; 
+int buttonStateCamera = 0;
+int buttonStateSend = 0;  
 
 void setup() {
  Serial.begin(115200);
  //Serial.setTimeout(1);
 
- pinMode(buttonPin, INPUT);
+ pinMode(buttonPinCamera, INPUT);
+ pinMode(buttonPinSend,INPUT_PULLUP);
  
  FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalSMD5050 );
  FastLED.setBrightness( BRIGHTNESS );
 }
 void loop() {
   
- buttonState = digitalRead(buttonPin);
+ buttonStateCamera = digitalRead(buttonPinCamera);
+ buttonStateSend = digitalRead(buttonPinSend);
 
- if (buttonState == LOW) {
+ if (buttonStateCamera == LOW) {
   for(int n = 0; n < NUM_LEDS; n++) {
   leds[n] = CRGB::White ;
   FastLED.show();
@@ -49,7 +53,11 @@ void loop() {
   FastLED.show();
    }
   delay( 100 );
- }
+   }
+
+  else if (buttonStateSend == HIGH) {
+    Serial.print("2"); 
+  }
   
   else {
   for(int n = 0; n < NUM_LEDS; n++) {
