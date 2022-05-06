@@ -105,7 +105,7 @@ function inactivityTime() {
     }
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(inactive, 3000)
+        time = setTimeout(inactive, 10000)
         // 1000 milliseconds = 1 second
         setTimeout(active, 100);
     }
