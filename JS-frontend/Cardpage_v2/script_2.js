@@ -113,7 +113,6 @@ function inactivityTime() {
 }
 
 function createIdleArray(){
-    let  container = document.getElementById("modal-idle");
     //copies array and then shuffles it
     let randomArray = images.slice();
     shuffle(randomArray);
