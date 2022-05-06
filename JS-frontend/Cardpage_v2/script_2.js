@@ -31,10 +31,11 @@ async function insertImage(){
 }
 
 function doesFileExist(urlToFile) {
+    //initialize and HXMLHttpRequest object
     let xhr = new XMLHttpRequest();
 
     //open request
-    xhr.open('HEAD', urlToFile, false);
+    xhr.open('GET', urlToFile, false);
     //send request
     xhr.send();
 
