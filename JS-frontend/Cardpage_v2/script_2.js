@@ -31,7 +31,7 @@ async function insertImage(){
 }
 
 function doesFileExist(urlToFile) {
-    //initialize and HXMLHttpRequest object
+    //initialize an HXMLHttpRequest object
     let xhr = new XMLHttpRequest();
 
     //open request
@@ -66,7 +66,7 @@ function sendInput(){
         clearPage(j);
     }
     setTimeout(printPopup,10);
-    setTimeout(deletePopup,3000);
+    setTimeout(deletePopup,2000);
     imagesOnScreen = 1;
 }
 
@@ -111,7 +111,7 @@ function inactivityTime() {
     function resetTimer() {
         clearTimeout(time);
         //change the duration before idle screen HERE
-        time = setTimeout(inactive, 10000)
+        time = setTimeout(inactive, 2000)
         // 1000 milliseconds = 1 second
         setTimeout(active, 100);
     }

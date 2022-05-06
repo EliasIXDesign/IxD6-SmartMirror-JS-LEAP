@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
 *{
-    margin: 1.5rem 1.5rem 0 1rem;
     padding: 0;
-    cursor: none;
 }
 body{
     font-family: 'Open Sans', sans-serif;
@@ -12,12 +10,14 @@ body{
 .header{
     text-align: center;
     color: white;
-    margin-left: 5rem;
-    font-size:35px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size:50px;
 }
 
 .input-container{
-    margin-top: 2rem;
+    margin-top: 0rem;
+    margin-left: 5rem;
 }
 .input{
    display: inline;
@@ -29,7 +29,7 @@ body{
 .input-img{
     object-fit:cover;
     width: 32%;
-    padding-top: 15rem;
+    padding-top: 10rem;
     padding-left: 0;
     padding-right: 0;
     max-height: 100%;
@@ -38,50 +38,52 @@ body{
 }
 
 .modal-container{
-    margin: 0;
+    margin-left: 2rem;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
+    width: 94%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 
 .modal-content {
-    margin-top: 10rem;
-    height: 80%;
+    border-radius: 10px;
+    margin-top: 25rem;
     display: grid;
-    background-color: white;
-    grid-template-columns: 1fr 1.1fr;
-    grid-template-rows: 0.13fr 0.3fr 0.3fr 0.3fr;
-    gap: 0px 0px;
+    background-color: rgb(255,255,255);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0fr 0fr 0fr 0fr;
+    gap: 10px 10px;
     grid-auto-flow: row;
     grid-template-areas:
-    "modal-header modal-header"
     "modal-image-1 modal-image-2"
     "modal-image-3 modal-image-4"
-    "modal-image-5 modal-image-6";
+    "modal-image-5 modal-image-6"
+    "modal-header modal-header";
+}
+
+.modal-content h1{
+    color: black;
 }
 .modal-header {
-    margin-top: 2.5rem;
+    padding: 0;
     grid-area: modal-header;
     text-align: center;
     font-size: 25px;
 }
 
-.modal-image-1 { grid-area: modal-image-1; }
+.modal-image-1 { grid-area: modal-image-1; margin-left: 2rem}
 
 .modal-image-2 { grid-area: modal-image-2; }
 
-.modal-image-3 { grid-area: modal-image-3; }
+.modal-image-3 { grid-area: modal-image-3; margin-left: 2rem }
 
 .modal-image-4 { grid-area: modal-image-4; }
 
-.modal-image-5 { grid-area: modal-image-5; }
+.modal-image-5 { grid-area: modal-image-5;  margin-left: 2rem}
 
 .modal-image-6 { grid-area: modal-image-6; }
 
@@ -95,19 +97,17 @@ body{
 }
 
 .modal-thank{
+    border-radius: 10px;
     margin-top: 60%;
     margin-left: 15%;
     height: 15%;
     width: 70%;
     background-color: white;
-}
-
-.modal-thank{
     font-size: 30px;
     color: black;
     text-align: center;
 }
 
 .modal-thank h1{
-    padding-top: 3.5rem;
+   padding: 3rem;
 }
