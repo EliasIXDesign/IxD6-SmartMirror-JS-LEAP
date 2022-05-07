@@ -111,7 +111,7 @@ function inactivityTime() {
     function resetTimer() {
         clearTimeout(time);
         //change the duration before idle screen HERE
-        time = setTimeout(inactive, 2000)
+        time = setTimeout(inactive, 15000)
         // 1000 milliseconds = 1 second
         setTimeout(active, 100);
     }
