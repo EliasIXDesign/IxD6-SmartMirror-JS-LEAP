@@ -12,7 +12,7 @@ cv2.namedWindow("test")
 
 img_counter = 1
 
-directory = r'C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\Cardpage_v2\Img'
+directory = r'C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\Cardpage_v2\Img_2'
 
 os.chdir(directory)
 print(os.listdir(directory))
