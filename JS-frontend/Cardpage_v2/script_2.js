@@ -3,6 +3,7 @@ let images = [];
 let imageID = 1;
 let imagesOnScreen = 1;
 
+
 // initialize inactivity function
 window.onload = function() {
     inactivityTime();
@@ -55,7 +56,7 @@ function update(){
 window.addEventListener('keydown', function (e){
     // " " for spacebar
     if(e.key === " " && imagesOnScreen > 1){
-        sendInput();
+        setTimeout(sendInput, 500);
     }
 })
 
@@ -123,6 +124,7 @@ function createIdleArray(){
     let randomArray = images.slice();
     shuffle(randomArray);
 
+    /*
     if(document.querySelector(".modal-image-1").childElementCount > 0){
         //gets every img element in DOM
         let images = document.getElementsByTagName('img');
@@ -133,6 +135,8 @@ function createIdleArray(){
             images[0].parentNode.removeChild(images[0]);
         }
     }
+
+     */
 
     for (let i = 0; i < images.length; i++) {
         if(i <6){
