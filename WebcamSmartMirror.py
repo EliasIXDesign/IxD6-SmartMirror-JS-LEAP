@@ -12,7 +12,7 @@ cv2.namedWindow("test")
 
 img_counter = 1
 
-directory = r'C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img'
+directory = r'C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\Cardpage_v2\Img_2'
 
 os.chdir(directory)
 print(os.listdir(directory))
@@ -58,6 +58,7 @@ while True:
         #C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img
     elif dataArduino == 2:
         pyautogui.press('space')
+    
 
 cam.release()
 
