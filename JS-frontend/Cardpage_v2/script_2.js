@@ -56,7 +56,7 @@ function update(){
 window.addEventListener('keydown', function (e){
     // " " for spacebar
     if(e.key === " " && imagesOnScreen > 1){
-        setTimeout(sendInput, 500);
+        setTimeout(sendInput, 300);
     }
 })
 
@@ -124,10 +124,11 @@ function createIdleArray(){
     let randomArray = images.slice();
     shuffle(randomArray);
 
-    /*
+
     if(document.querySelector(".modal-image-1").childElementCount > 0){
         //gets every img element in DOM
-        let images = document.getElementsByTagName('img');
+        let div = document.querySelector(".modal-content");
+        let images = div.getElementsByTagName("img");
 
         //remove images if there is any on modal screen
         let l = images.length;
@@ -136,7 +137,7 @@ function createIdleArray(){
         }
     }
 
-     */
+
 
     for (let i = 0; i < images.length; i++) {
         if(i <6){
