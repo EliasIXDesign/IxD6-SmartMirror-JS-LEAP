@@ -10,6 +10,7 @@ window.onload = function() {
 
 // when taking a photo of card
 window.addEventListener('keydown', function (e){
+    console.log("enter pressed!");
     if(e.key === 'Enter' && imagesOnScreen<=6){
         setTimeout(insertImage, 500);
     }
