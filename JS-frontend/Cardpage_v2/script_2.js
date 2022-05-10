@@ -20,7 +20,7 @@ window.addEventListener('keydown', function (e){
 async function insertImage(){
     let newImg = document.createElement('img');
     let imageDiv = document.querySelector(`.input-${imagesOnScreen}`);
-    newImg.src = `Img_2/${imageID}.png`;
+    newImg.src = `Img_2/${imageID}.jpg`;
 
     if(doesFileExist(newImg.src)){
         newImg.id =`${imageID}`;

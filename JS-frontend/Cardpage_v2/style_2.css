@@ -51,13 +51,14 @@ body{
 }
 
 .modal-content {
+    padding-top: 5rem;
     border-radius: 10px;
     margin-top: 25rem;
     display: grid;
     background-color: rgb(255,255,255);
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0fr 0fr 0fr 0fr;
-    gap: 10px 10px;
+    gap: 3rem 10px;
     grid-auto-flow: row;
     grid-template-areas:
     "modal-image-1 modal-image-2"
@@ -70,7 +71,7 @@ body{
     color: black;
 }
 .modal-header {
-    padding: 0;
+
     grid-area: modal-header;
     text-align: center;
     font-size: 25px;
