@@ -56,6 +56,8 @@ while True:
         pyautogui.press('enter')
 
         #C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img
+    elif dataArduino == 2:
+        pyautogui.press('space')
     
 
 cam.release()
