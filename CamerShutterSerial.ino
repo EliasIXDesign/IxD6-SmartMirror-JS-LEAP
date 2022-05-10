@@ -2,12 +2,12 @@
 
 #define LED_PIN 6
 
-#define NUM_LEDS    6
+#define NUM_LEDS    8
 #define CHIPSET     WS2812B
 #define COLOR_ORDER GRB
 CRGB leds[NUM_LEDS];
 
-#define BRIGHTNESS  150
+#define BRIGHTNESS  255
 
 const int buttonPinCamera = 2;
 const int buttonPinSend = 9;
