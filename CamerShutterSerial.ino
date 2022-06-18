@@ -12,13 +12,8 @@ CRGB leds[NUM_LEDS];
 
 //assign button to arduino pins
 const int buttonPinCamera = 2;
-const int buttonPinSend = 9;
 
-int buttonStateCamera = 0;
-int buttonStateSend = 0;  
-
-bool current_state = false;
-bool old_state = current_state; 
+int buttonStateCamera = 0; 
 
 void setup() {
  Serial.begin(115200);
@@ -26,8 +21,6 @@ void setup() {
 
  //Green button
  pinMode(buttonPinCamera, INPUT);
- //Blue button
- pinMode(buttonPinSend,INPUT_PULLUP);
  
  FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalSMD5050 );
  FastLED.setBrightness( BRIGHTNESS );
@@ -36,8 +29,6 @@ void loop() {
  
  // Green button
  buttonStateCamera = digitalRead(buttonPinCamera); 
- // Blue button
- current_state = digitalRead(buttonPinSend);
 
  //when green button is pressed LED-strip light-sequence initiates 
  if (buttonStateCamera == LOW) {
@@ -70,12 +61,6 @@ void loop() {
    
    delay( 100 );
    } //end of if-statement
-  
-   //when Blue button is pressed the number '2' is sent to be interpreted by python script 
-   else if (current_state != old_state) {
-     old_state = current_state;
-     Serial.print("2"); 
-    }
   
     // LED-strip stays unlit if no button is pressed
     else {
