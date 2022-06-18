@@ -54,11 +54,11 @@ while True:
         print("{} written!".format(img_name))
         img_counter += 1
         pyautogui.press('enter')
+        time.sleep (1)
+        pyautogui.press('space')
 
         #C:\Users\Elias\WebstormProjects\IxD6-SmartMirror-JS-LEAP\JS-frontend\CardPage\Img
-    elif dataArduino == 2:
-        pyautogui.press('space')
-    
+   
 
 cam.release()
 
