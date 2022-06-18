@@ -5,8 +5,9 @@ let imagesOnScreen = 1;
 
 
 // initialize inactivity function
+
 window.onload = function() {
-    inactivityTime();
+    inactivityTime(false);
 }
 
 // when taking a photo of card
@@ -67,9 +68,14 @@ function sendInput(){
     for (let j = 1; j <imagesOnScreen ; j++) {
         clearPage(j);
     }
+    inactivityTime(true);
     setTimeout(printPopup,10);
-    setTimeout(deletePopup,2000);
+    setTimeout(deletePopup,4000);
     imagesOnScreen = 1;
+    setTimeout(function (){
+        inactivityTime(false)
+    },4300);
+
 }
 
 function insertImageInArray(i){
@@ -93,15 +99,16 @@ function clearPage(j){
 }
 
 
-function inactivityTime() {
+function inactivityTime(n) {
+    let isPopUp = n;
     const modal = document.getElementById("modal-idle");
     modal.style.display="none";
-    let time;
-    window.onload = resetTimer;
-    // DOM Events
-    document.onmousemove = resetTimer;
-    document.onkeydown = resetTimer;
-
+    if (isPopUp === false){
+        inactive();
+    }
+    if (isPopUp === true){
+        active();
+    }
     function inactive() {
         createIdleArray();
         modal.style.display = "block";
@@ -113,7 +120,7 @@ function inactivityTime() {
     function resetTimer() {
         clearTimeout(time);
         //change the duration before idle screen HERE
-        time = setTimeout(inactive, 15000)
+        time = setTimeout(inactive, 1500)
         // 1000 milliseconds = 1 second
         setTimeout(active, 100);
     }
@@ -136,9 +143,6 @@ function createIdleArray(){
             images[0].parentNode.removeChild(images[0]);
         }
     }
-
-
-
     for (let i = 0; i < images.length; i++) {
         if(i <6){
             insertArray(i, randomArray);
