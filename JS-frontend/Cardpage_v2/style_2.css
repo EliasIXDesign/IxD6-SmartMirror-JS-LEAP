@@ -17,25 +17,15 @@ body{
 }
 
 .input-container{
-    margin-top: 0rem;
-    margin-left: 5rem;
+    margin-top: 15rem;
+    margin-left: 10rem;
 }
 .input{
    display: inline;
 }
 
-.left img{
-    margin-right:14rem;
-}
 .input-img{
-    object-fit:cover;
-    width: 32%;
-    padding-top: 10rem;
-    padding-left: 0;
-    padding-right: 0;
-    max-height: 100%;
-    max-width: 100%;
-    margin: 0;
+    width: 80%;
 }
 
 .modal-container{
